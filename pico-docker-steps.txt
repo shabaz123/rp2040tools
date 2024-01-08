@@ -1,0 +1,33 @@
+###################################################
+# Building Pi Pico C/C++ Projects using Docker
+###################################################
+
+# Installing Docker on Ubuntu
+sudo apt update
+sudo apt install docker.io
+sudo groupadd docker
+sudo usermod -aG docker shabaz
+docker run hello-world
+# Installing the Docker Container
+docker run -d -it --name pc1 --mount type=bind,source=${PWD},target=/home/dev lukstep/raspberry-pi-pico-sdk:latest
+# Starting up and Accessing the Container
+docker exec -it pc1 /bin/sh
+# Subsequently Starting up and Accessing the Container after reboots
+docker start pc1
+docker exec -it pc1 /bin/sh
+# Downloading Project Source Code into the Container
+cd /home/dev
+mkdir pico
+cd pico
+git clone https://github.com/raspberrypi/pico-extras.git
+git clone https://github.com/shabaz123/sound_fx_mixer
+cd sound_fx_mixer
+mkdir build
+# Building the Project
+export PICO_EXTRAS_PATH=/home/dev/pico/pico-extras
+cd /home/dev/pico/sound_fx_mixer/build
+cmake ..
+make
+# Obtaining the Binary .uf2 File
+docker cp pc1:/home/dev/pico/sound_fx_mixer/build/sound_fx_mixer.uf2 .
+
