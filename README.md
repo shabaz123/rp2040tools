@@ -4,7 +4,7 @@ This repository contains a pre-built Windows x64 version of OpenOCD built for th
 
 There are zip files containing versions of OpenOCD built on the following dates (but use the most recent, unless there's a specific reason not to!):
 ~~~
-19th May 2024
+19th May 2024 (this version was tested with both Pi Pico and Xiao RP2040)
 14th Oct 2023
 28th September 2022
 ~~~
