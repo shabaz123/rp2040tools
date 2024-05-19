@@ -2,7 +2,7 @@
 
 This repository contains a pre-built Windows x64 version of OpenOCD built for the Pi Pico (built using the instructions in the Pi Pico user guide).
 
-There are zip files containing versions of OpenOCD built on the following dates:
+There are zip files containing versions of OpenOCD built on the following dates (but use the most recent, unless there's a specific reason not to!):
 ~~~
 19th May 2024
 14th Oct 2023
